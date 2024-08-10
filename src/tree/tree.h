@@ -35,11 +35,11 @@ class tree {
   class iter {
    public:
     friend class tree<K, V>;
-    iter() : current(nullptr), next(nullptr), end(nullptr) {};
+    iter() : current(nullptr), next(nullptr), end(nullptr){};
     iter &operator++();
     iter &operator--();
-    bool operator==(const iter &it)const ;
-    bool operator!=(const iter &it)const;
+    bool operator==(const iter &it) const;
+    bool operator!=(const iter &it) const;
 
    protected:
     Node *current;

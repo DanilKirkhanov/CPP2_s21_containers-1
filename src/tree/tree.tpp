@@ -318,7 +318,7 @@ bool tree<K, V>::iter::operator==(const iter& it) const {
   return current == it.current;
 }
 template <typename K, typename V>
-bool tree<K, V>::iter::operator!=(const iter& it) const{
+bool tree<K, V>::iter::operator!=(const iter& it) const {
   return this->current != it.current;
 }
 

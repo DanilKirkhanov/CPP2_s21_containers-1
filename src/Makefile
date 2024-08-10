@@ -37,6 +37,12 @@ else
 endif
 	./unit_test
 
+style:
+	clang-format -style=Google -n *.cpp */*.h */*.tpp
+	
+tostyle:
+	clang-format -style=Google -i *.cpp */*.h */*.tpp
+
 gcov_report: clean
 ifeq ($(OS), Darwin)
 	$(CC) $(TEST_FLAGS) $(GCOV_FLAGS) $(LIBS) $(CPPFLAGS) $(TEST_SRC) -o gcov_report 

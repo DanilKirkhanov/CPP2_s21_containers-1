@@ -43,7 +43,7 @@ class list {
   class ListIterator {
    public:
     ListIterator() { current = nullptr; }
-    ListIterator(Node* ptr) : current(ptr) {};
+    ListIterator(Node* ptr) : current(ptr){};
     friend class list;
     Node* current = nullptr;
 

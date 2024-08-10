@@ -55,25 +55,28 @@ typename list<T>::iterator list<T>::insert(iterator pos, const T& value) {
   return iterator(add);
 }
 
-
 template <typename T>
 template <typename... Args>
-typename list<T>::iterator list<T>::insert_many(const_iterator pos, Args&&... args) {
+typename list<T>::iterator list<T>::insert_many(const_iterator pos,
+                                                Args&&... args) {
   iterator it = iterator(pos.current);
-  (void(std::initializer_list<int>{ (it = insert(it, std::forward<Args>(args)), ++it, 0)... }));
+  (void(std::initializer_list<int>{
+      (it = insert(it, std::forward<Args>(args)), ++it, 0)...}));
   return it;
 }
 
 template <typename T>
 template <typename... Args>
 void list<T>::insert_many_back(Args&&... args) {
-  (void(std::initializer_list<int>{ (push_back(std::forward<Args>(args)), 0)... }));
+  (void(
+      std::initializer_list<int>{(push_back(std::forward<Args>(args)), 0)...}));
 }
 
 template <typename T>
 template <typename... Args>
 void list<T>::insert_many_front(Args&&... args) {
-  (void(std::initializer_list<int>{ (push_front(std::forward<Args>(args)), 0)... }));
+  (void(std::initializer_list<int>{
+      (push_front(std::forward<Args>(args)), 0)...}));
 }
 
 template <typename T>
@@ -299,7 +302,6 @@ void list<T>::unique() {
     }
   }
 }
-
 
 template <typename T>
 void list<T>::print() const {

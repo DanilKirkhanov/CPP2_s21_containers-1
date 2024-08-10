@@ -37,8 +37,8 @@ class queue {
   void pop() { cont.pop_front(); }
 
   void swap(queue &other) { cont.swap(other.cont); }
-   template <typename... Args>
-  void insert_many_back(Args&&... args) {
+  template <typename... Args>
+  void insert_many_back(Args &&...args) {
     cont.insert_many_back(std::forward<Args>(args)...);
   }
 

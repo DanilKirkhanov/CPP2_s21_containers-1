@@ -35,7 +35,8 @@ array<T, N>::array(array<T, N> &&other) noexcept {
 
 // Оператор присваивания с перемещением
 template <typename T, std::size_t N>
-typename array<T, N>::array &array<T, N>::operator=(array<T, N> &&other) noexcept {
+typename array<T, N>::array &array<T, N>::operator=(
+    array<T, N> &&other) noexcept {
   for (size_t i = 0; i < N; ++i) {
     data_[i] = std::move(other.data_[i]);
   }
@@ -162,7 +163,6 @@ void array<T, N>::swap(array<T, N> &other) {
   std::swap_ranges(data_, data_ + N, other.data_);
 }
 
-
 // Заполнение массива одним значением
 template <typename T, std::size_t N>
 void array<T, N>::fill(const_reference value) {
@@ -171,4 +171,4 @@ void array<T, N>::fill(const_reference value) {
 
 }  // namespace s21
 
-#endif // CPP2_CONTAIN_S21_ARRAY_TPP
+#endif  // CPP2_CONTAIN_S21_ARRAY_TPP

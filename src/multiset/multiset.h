@@ -50,7 +50,7 @@ class multiset : protected tree<K, K> {
     friend class multiset<K>;
 
    public:
-    multiset_iter() : tree<K, K>::iter(), current_duplicate(0) {};
+    multiset_iter() : tree<K, K>::iter(), current_duplicate(0){};
     iterator &operator++();
     iterator &operator--();
     bool operator==(const iterator &it);
@@ -62,7 +62,7 @@ class multiset : protected tree<K, K> {
   };
   class multiset_const_iter : public multiset_iter {
    public:
-    multiset_const_iter() : multiset_iter() {};
+    multiset_const_iter() : multiset_iter(){};
     const K operator*() const { return multiset_iter::operator*(); };
   };
 };

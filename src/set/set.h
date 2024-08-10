@@ -34,12 +34,12 @@ class set : public tree<K, K> {
     friend class set<K>;
 
    public:
-    set_iter() : tree<K, K>::iter() {};
+    set_iter() : tree<K, K>::iter(){};
     K &operator*();
   };
   class set_const_iter : public set_iter {
    public:
-    set_const_iter() : set_iter() {};
+    set_const_iter() : set_iter(){};
     const K operator*() const { return set_iter::operator*(); };
   };
 };

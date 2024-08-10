@@ -17,9 +17,9 @@
 #include "stack/s21_stack.h"
 #include "vector/s21_vector.h"
 
-
 template <typename T, std::size_t N>
-bool arrays_equal(const s21::array<T, N>& s21_array, const std::array<T, N>& std_array) {
+bool arrays_equal(const s21::array<T, N>& s21_array,
+                  const std::array<T, N>& std_array) {
   for (std::size_t i = 0; i < N; ++i) {
     if (s21_array[i] != std_array[i]) return false;
   }
@@ -38,14 +38,12 @@ TEST(ArrayTest, InitializerListConstructor) {
   EXPECT_TRUE(arrays_equal(s21_array, std_array));
 }
 
-
 TEST(ArrayTest, MoveConstructor) {
   s21::array<int, 5> s21_array1 = {1, 2, 3, 4, 5};
   s21::array<int, 5> s21_array2(std::move(s21_array1));
   std::array<int, 5> std_array = {1, 2, 3, 4, 5};
   EXPECT_TRUE(arrays_equal(s21_array2, std_array));
 }
-
 
 TEST(ArrayTest, MoveAssignmentOperator) {
   s21::array<int, 5> s21_array1 = {1, 2, 3, 4, 5};
@@ -81,13 +79,15 @@ TEST(ArrayTest, BackMethod) {
 TEST(ArrayTest, BeginEndMethods) {
   s21::array<int, 5> s21_array = {1, 2, 3, 4, 5};
   std::array<int, 5> std_array = {1, 2, 3, 4, 5};
-  EXPECT_TRUE(std::equal(s21_array.begin(), s21_array.end(), std_array.begin()));
+  EXPECT_TRUE(
+      std::equal(s21_array.begin(), s21_array.end(), std_array.begin()));
 }
 
 TEST(ArrayTest, CBeginCEndMethods) {
   const s21::array<int, 5> s21_array = {1, 2, 3, 4, 5};
   std::array<int, 5> std_array = {1, 2, 3, 4, 5};
-  EXPECT_TRUE(std::equal(s21_array.cbegin(), s21_array.cend(), std_array.cbegin()));
+  EXPECT_TRUE(
+      std::equal(s21_array.cbegin(), s21_array.cend(), std_array.cbegin()));
 }
 
 TEST(ArrayTest, EmptyMethod) {
@@ -1972,9 +1972,6 @@ TEST(vectorTest, Modifiers_insert_2) {
   EXPECT_EQ(s21_v.at(5), std_v.at(5));
 }
 
-
-
-
 TEST(vectorTest, Modifiers_erase_1) {
   s21::vector<int> s21_v{1, 2, 3, 4};
   std::vector<int> std_v{1, 2, 3, 4};
@@ -3223,7 +3220,6 @@ TEST(setTest2, MoveConstructor) {
   EXPECT_TRUE(s2.contains(3));
 }
 
-
 TEST(setTest2, SizeMaxSize) {
   s21::set<int> s{3, 5, 1, 4, 2};
   std::set<int> s1{3, 5, 1, 4, 2};
@@ -3250,8 +3246,6 @@ TEST(setTest2, Swap) {
   EXPECT_TRUE(s2.contains(1));
   EXPECT_TRUE(s1.contains(4));
 }
-
-
 
 TEST(setTest2, Find) {
   s21::set<int> s{1, 2, 3};
@@ -3324,8 +3318,6 @@ TEST(mapTest2, InsertPair) {
   EXPECT_EQ(map[2], "two");
 }
 
-
-
 TEST(mapTest2, EmptyAndSize) {
   s21::map<int, std::string> empty_map;
   s21::map<int, std::string> map = {{1, "one"}, {2, "two"}, {3, "three"}};
@@ -3344,7 +3336,6 @@ TEST(mapTest2, MaxSize) {
   // Max size is implementation-dependent, but it should be greater than 0
   EXPECT_GT(map.max_size(), map1.max_size());
 }
-
 
 TEST(mapTest2, Swap) {
   s21::map<int, std::string> map1;

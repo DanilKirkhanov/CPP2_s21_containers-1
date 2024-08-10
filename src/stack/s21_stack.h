@@ -40,7 +40,7 @@ class stack {
   void swap(stack &other) { this->cont.swap(other.cont); }
 
   template <typename... Args>
-  void insert_many_front(Args&&... args) {
+  void insert_many_front(Args &&...args) {
     cont.insert_many_front(std::forward<Args>(args)...);
   }
 
