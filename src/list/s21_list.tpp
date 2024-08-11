@@ -190,7 +190,6 @@ void list<T>::clear() {
   }
   root = nullptr;
   tail = nullptr;
-  end_ = nullptr;
   size_ = 0;
 }
 

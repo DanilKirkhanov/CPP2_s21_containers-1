@@ -346,7 +346,7 @@ template <typename K, typename V>
 void tree<K, V>::erase(iter pos) {
   if (pos.current == pos.end) throw std::out_of_range("Out of range");
   this->erase_(pos.cur_value.first);
-  pos.current = pos.Back(pos.next);
+  // pos.current = pos.Back(pos.next);
 }
 
 template <typename K, typename V>
@@ -354,7 +354,7 @@ void tree<K, V>::merge(tree& other) {
   for (tree<K, V>::iter i = other.begin(); i.current != i.end; ++i) {
     std::pair<Node*, bool> b = insert_(i.cur_value.first, i.cur_value.second);
     if (b.second) other.erase_(b.first->key);
-    i.current = i.Forw(i.next);
+    // i.current = i.Forw(i.next);
   }
 }
 

@@ -38,12 +38,12 @@ class map : public tree<K, V> {
     friend class map<K, V>;
 
    public:
-    map_iter() : tree<K, V>::iter(){};
+    map_iter() : tree<K, V>::iter() {};
     std::pair<K, V> &operator*();
   };
   class map_const_iter : public map_iter {
    public:
-    map_const_iter() : map_iter(){};
+    map_const_iter() : map_iter() {};
     const std::pair<K, V> operator*() const { return map_iter::operator*(); };
   };
 };
